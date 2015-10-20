@@ -8,10 +8,19 @@ You can think of Grace Period as a tool for placing runtime assertions into your
 
 From the command line:
 
-```gem install grace_period```
+    gem install grace_period
 
 For use in your Bundler Gemfile:
 
-```gem 'grace_period'```
+    gem 'grace_period'
 
+## Hello World
 
+A Grace Period is a section of code immediately preceding a method declaration. It identifies the expiration date and notification mechanism for the method, along with the grace period during which you would like to be warned about the imminent expiration.
+
+Here is the simplest possible Grace Period:
+
+```ruby
+GracePeriod :expires_at Date.parse("Tue, 10 Aug 2016 01:20:19 -0500 (EDT)")
+def my_method
+```
