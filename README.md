@@ -56,3 +56,25 @@ You can find the [complete list of arguments]('#') below. You can accomplish mos
 ## Tutorial
 
 We've put together a [spiffy tutorial]('#') for you, as well.
+
+## Getting Involved
+
+To get started in contributing pull requests to improve this gem:
+
+1. Fork this repository
+2. Clone the forked repository to your local machine
+3. Watch the tests pass by running:
+
+```
+bundle install
+bundle exec rake
+```
+4. Make your modifications or improvements.
+5. Submit a PR on GitHub.
+
+## Need Help?
+You can reach out to the gem authors at some.nird@nird.us.
+
+## License
+
+This work is licensed under the terms of TODO user-it-for-whatever-but-dont-steal-it-license.
