@@ -25,7 +25,7 @@ GracePeriod expires_at: Date.parse("Tue, 10 Aug 2016 01:20:19 -0500 (EDT)")
 def my_method
 ...
 ```
-That says that my_method will expire on Tuesday, August 10th, 2016, at the time indicated. Grace Period has reasonable defaults for grace period warnings preceding an expiration which can be adjusted via the configuration file, so the expires_at value is the only required value.
+That says that `my_method` will expire on Tuesday, August 10th, 2016, at the time indicated. Grace Period has reasonable defaults for grace period warnings preceding an expiration which can be adjusted via the configuration file, so the `expires_at` value is the only required value.
 
 Here is that code sample with an immediate expiration, expressed more completely:
 
@@ -48,3 +48,8 @@ Again, it is worth mentioning that Grace Period will use its default values unle
 ```ruby
 GracePeriod expires_at: (Time.now - 1.second), respond_by: :exception
 ```
+You can find the [complete list of arguments]('#') below. You can accomplish most typical use cases using the built-in parameters, but Grace Period also lets you pass in code blocks for most values, so that you can have maximum flexibility to add whatever logic makes sense for your app to identify and alert about expirations and grace periods. Find out more on our section on [blocks, procs and lambdas]('#').
+
+## Tutorial
+
+We've put together a [spiffy tutorial]('#') for you, as well.
