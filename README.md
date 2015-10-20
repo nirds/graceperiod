@@ -42,6 +42,9 @@ class Example
 end
 
 Example.new.my_method
+```
+...will produce the output:
+```
 WARNING: Invoking a method with an expired GracePeriod in example#my_method
 ```
 Again, it is worth mentioning that Grace Period will use its default values unless instructed otherwise, and we strive to be informative but unobtrusive by default, so an expired method will execute with a warning, but you could alter the default behavior in the configuration or you could add additional arguments to specify the response to an encountered expiration, like this:
