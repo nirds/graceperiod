@@ -21,6 +21,30 @@ A Grace Period is a section of code immediately preceding a method declaration. 
 Here is the simplest possible Grace Period:
 
 ```ruby
-GracePeriod :expires_at Date.parse("Tue, 10 Aug 2016 01:20:19 -0500 (EDT)")
+GracePeriod expires_at: Date.parse("Tue, 10 Aug 2016 01:20:19 -0500 (EDT)")
 def my_method
+...
+```
+That says that my_method will expire on Tuesday, August 10th, 2016, at the time indicated. Grace Period has reasonable defaults for grace period warnings preceding an expiration which can be adjusted via the configuration file, so the expires_at value is the only required value.
+
+Here is that code sample with an immediate expiration, expressed more completely:
+
+```ruby
+require 'grace_period'
+
+class Example
+  include GracePeriod::Core
+
+  GracePeriod expires_at: Time.now - 1.second
+  def my_method
+    puts "hello from my_method!"
+  end
+end
+
+Example.new.my_method
+WARNING: Invoking a method with an expired GracePeriod in example#my_method
+```
+Again, it is worth mentioning that Grace Period will use its default values unless instructed otherwise, and we strive to be informative but unobtrusive by default, so an expired method will execute with a warning, but you could alter the default behavior in the configuration or you could add additional arguments to specify the response to an encountered expiration, like this:
+```ruby
+GracePeriod expires_at: (Time.now - 1.second), respond_by: :exception
 ```
